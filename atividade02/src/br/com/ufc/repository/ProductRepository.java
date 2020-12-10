@@ -1,5 +1,6 @@
 package br.com.ufc.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,5 +25,19 @@ public class ProductRepository {
       throw new PNEException();
     }
     return product;
+  }
+
+  public ArrayList<Product> listProdutc() throws PNEException {
+    ArrayList<Product> product = new ArrayList<Product>();
+
+    for (Product product2 : products.values()){ // Preenchendo o array com os produtos
+      product.add(product2);
+    }
+
+    if(product.isEmpty()){ // É lançado uma exception caso não exista nenhum produto
+      throw new PNEException();
+    }
+
+    return product; // Retornando o array de produtos
   }
 }
