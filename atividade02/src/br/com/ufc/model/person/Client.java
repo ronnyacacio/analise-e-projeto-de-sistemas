@@ -5,7 +5,7 @@ public class Client extends Person {
   private int age;
   private char sex;
 
-  public Client(String name, int registration, String address, int age, char sex) {
+  public Client(String name, Integer registration, String address, int age, char sex) {
     super(name, registration);
     this.address = address;
     this.age = age;

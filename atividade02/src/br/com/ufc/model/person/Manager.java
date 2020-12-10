@@ -4,43 +4,9 @@ import br.com.ufc.model.product.Product;
 
 public class Manager extends Employee {
 
-  public Manager(String name, int registration) {
+  public Manager(String name, Integer registration) {
     super(name, registration);
   }
-  
-  public void addClient(Client client) {
-    //
-  }
 
-  public void addProduct(Product product) {
-    //
-  }
-
-  public void addSystemOperator(SystemOperator systemOperator) {
-    //
-  }
-
-  public void listClients() {
-    //
-  }
-
-  public void listProducts() {
-    //
-  }
-
-  public void listSystemOperators() {
-    //
-  }
-
-  public void findClientByRegistration() {
-    //
-  }
-
-  public void findProductByCode() {
-    //
-  }
-
-  public void findSystemOperatorByRegistration() {
-    //
-  }
+  public Manager() {}
 }
