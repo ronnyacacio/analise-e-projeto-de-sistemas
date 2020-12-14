@@ -59,12 +59,24 @@ public class ManagerController {
     }
   }
 
-  public void listProducts() {
-    //
+  public ArrayList<Product> listProducts() {
+    try {
+      ArrayList<Product> products = productRepository.listProdutc();
+      return products; // Retornando um ArrayList com todos os produtos
+    } catch (PNEException e) { 
+      System.out.println(errorMessage + e.getMessage());
+      return null; // Retorna nulo caso capture um PNEException apos imprimir a mensagem de erro
+    }
   }
 
-  public void listSystemOperators() {
-    //
+  public ArrayList<SystemOperator> listSystemOperators() {
+    try {
+      ArrayList<SystemOperator> operators = personRepository.listSystemOperators();
+      return operators; // Retornando um ArrayList com todos operadores
+    } catch (SONEException e) {
+      System.out.println(errorMessage + e.getMessage());
+      return null; // Retorna nulo caso capture um SONEException apos imprimir a mensagem de erro
+    }
   }
 
   public Client findClientByRegistration(Integer registration) {

@@ -69,4 +69,20 @@ public class PersonRepository {
     }
     return clients;
   }
+
+  public ArrayList<SystemOperator> listSystemOperators() throws SONEException {
+    ArrayList<SystemOperator> operators = new ArrayList<SystemOperator>();
+
+    for (Person person : persons.values()) { // Percorrendo o HashMap de pesoas
+      if (person instanceof SystemOperator) { // Verificando se a pessoa atual foi instanciada como "SystemOperator"
+        operators.add((SystemOperator)person); // Adicionando no meu array
+      }
+    }
+
+    if (operators.isEmpty()) { // Se o array for vazio lança uma SONEException
+      throw new SONEException();
+    }
+
+    return operators; // Caso não seja vazio retorna o array
+  }
 }
