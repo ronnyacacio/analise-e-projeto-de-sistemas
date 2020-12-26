@@ -2,6 +2,7 @@ package br.com.ufc.model;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Location {
   private String code;
@@ -49,16 +50,21 @@ public class Location {
   }
 
   public void fine() {
-    if (this.delivery.after(new Date()) || this.delivery.equals(new Date())) 
+    if (this.delivery.after(new Date()) || this.delivery.equals(new Date())){ 
       System.out.println("SEM MULTA!");
-      
-    Calendar temp1 = Calendar.getInstance();
-    temp1.setTime(new Date());
+    }
     
-    Calendar temp2 = Calendar.getInstance();
-    temp2.setTime(this.delivery);
+    Date nowDate = new Date(); // Pegando a data atual
+    int multa; 
 
-    temp1.add(Calendar.DATE, - temp2.get(Calendar.DAY_OF_MONTH));
-    System.out.println("Atraso: " + temp1.get(Calendar.DAY_OF_MONTH));
+    long DifEmMil = Math.abs(nowDate.getTime() - this.delivery.getTime()); // Pegando a diferença entre datas em milisegundos
+
+    Long diff = TimeUnit.DAYS.convert(DifEmMil, TimeUnit.MILLISECONDS); // Convertendo de milisegundos para quantidade de dias
+
+    // Calculando a multa
+    multa = Integer.valueOf(diff.toString());
+    multa = (multa) * 2;
+
+    System.out.println("Multa de " + multa);
   }
 }
