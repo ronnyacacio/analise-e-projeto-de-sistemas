@@ -50,21 +50,14 @@ public class Location {
   }
 
   public void fine() {
-    if (this.delivery.after(new Date())) {
-      System.out.println("SEM MULTA!");
-      return;
-    }
-
     Date nowDate = new Date();
-    int multa;
 
-    long DifEmMil = Math.abs(nowDate.getTime() - this.delivery.getTime());
+    long diffEmMil = Math.abs(nowDate.getTime() - this.delivery.getTime());
 
-    Long diff = TimeUnit.DAYS.convert(DifEmMil, TimeUnit.MILLISECONDS);
+    int days = (int) TimeUnit.DAYS.convert(diffEmMil, TimeUnit.MILLISECONDS);
 
-    multa = Integer.valueOf(diff.toString());
-    multa = (multa) * 2;
+    int multa = (days) * 2;
 
-    System.out.println("Multa de R$" + multa + ",00");
+    System.out.println("Multa de R$ " + multa + ",00");
   }
 }

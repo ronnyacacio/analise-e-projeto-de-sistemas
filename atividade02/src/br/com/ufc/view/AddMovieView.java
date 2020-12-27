@@ -31,7 +31,7 @@ public class AddMovieView {
       String gender = scanner.next();
       System.out.println("Digite o ano de lançamento: ");
       int yearOfLaunching = scanner.nextInt();
-      System.out.println("Digite a duração: ");
+      System.out.println("Digite a duração (em minutos): ");
       int duration = scanner.nextInt();
 
       switch (op) {
