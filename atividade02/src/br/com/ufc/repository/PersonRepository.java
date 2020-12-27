@@ -8,6 +8,7 @@ import br.com.ufc.exception.CNEException;
 import br.com.ufc.exception.SOJCException;
 import br.com.ufc.exception.SONEException;
 import br.com.ufc.model.person.Client;
+import br.com.ufc.model.person.Employee;
 import br.com.ufc.model.person.Person;
 import br.com.ufc.model.person.SystemOperator;
 
@@ -84,5 +85,15 @@ public class PersonRepository {
     }
 
     return operators; // Caso não seja vazio retorna o array
+  }
+
+  public ArrayList<Employee> getEmployees() {
+    ArrayList<Employee> employees = new ArrayList<Employee>();
+
+    for (Person person : persons.values()) {
+      employees.add((Employee)person);
+    }
+
+    return employees;
   }
 }
