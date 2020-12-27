@@ -9,18 +9,22 @@ public abstract class Person {
     this.registration = registration;
   }
 
-  public Person() {}
+  public Person() {
+  }
 
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public Integer getRegistration() {
     return registration;
   }
+
   public void setRegistration(Integer registration) {
     this.registration = registration;
-  }  
+  }
 }

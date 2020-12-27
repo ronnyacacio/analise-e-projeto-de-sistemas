@@ -35,4 +35,10 @@ public class Client extends Person {
   public void setSex(char sex) {
     this.sex = sex;
   }
+
+  @Override
+  public String toString() {
+    return "Client [name=" + getName() + ", registration=" + getRegistration() + ", address=" + address + ", age=" + age
+        + ", sex=" + sex + "]";
+  }
 }

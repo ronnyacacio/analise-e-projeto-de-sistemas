@@ -14,7 +14,6 @@ import br.com.ufc.model.product.Product;
 import br.com.ufc.repository.PersonRepository;
 import br.com.ufc.repository.ProductRepository;
 
-
 public class ManagerController {
   PersonRepository personRepository = new PersonRepository();
   ProductRepository productRepository = new ProductRepository();
@@ -61,21 +60,21 @@ public class ManagerController {
 
   public ArrayList<Product> listProducts() {
     try {
-      ArrayList<Product> products = productRepository.listProdutc();
-      return products; // Retornando um ArrayList com todos os produtos
-    } catch (PNEException e) { 
+      ArrayList<Product> products = productRepository.listProdutcs();
+      return products;
+    } catch (PNEException e) {
       System.out.println(errorMessage + e.getMessage());
-      return null; // Retorna nulo caso capture um PNEException apos imprimir a mensagem de erro
+      return null;
     }
   }
 
   public ArrayList<SystemOperator> listSystemOperators() {
     try {
       ArrayList<SystemOperator> operators = personRepository.listSystemOperators();
-      return operators; // Retornando um ArrayList com todos operadores
+      return operators;
     } catch (SONEException e) {
       System.out.println(errorMessage + e.getMessage());
-      return null; // Retorna nulo caso capture um SONEException apos imprimir a mensagem de erro
+      return null;
     }
   }
 

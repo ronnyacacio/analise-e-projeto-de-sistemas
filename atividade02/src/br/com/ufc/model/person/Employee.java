@@ -3,12 +3,13 @@ package br.com.ufc.model.person;
 public class Employee extends Person {
   private String login;
   private String password;
-  
+
   public Employee(String name, Integer registration) {
     super(name, registration);
   }
 
-  public Employee() {}
+  public Employee() {
+  }
 
   public String getLogin() {
     return login;

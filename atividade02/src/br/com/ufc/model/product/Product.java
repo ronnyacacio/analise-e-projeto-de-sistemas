@@ -44,4 +44,9 @@ public abstract class Product {
   public void setLeased(boolean leased) {
     this.leased = leased;
   }
+
+  @Override
+  public String toString() {
+    return "Product [code=" + code + ", gender=" + gender + ", leased=" + leased + ", title=" + title + "]";
+  }
 }

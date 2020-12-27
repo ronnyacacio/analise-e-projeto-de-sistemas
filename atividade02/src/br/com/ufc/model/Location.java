@@ -49,18 +49,17 @@ public class Location {
   }
 
   public void fine() {
-    if (this.delivery.after(new Date()) || this.delivery.equals(new Date())){ 
+    if (this.delivery.after(new Date()) || this.delivery.equals(new Date())) {
       System.out.println("SEM MULTA!");
     }
-    
-    Date nowDate = new Date(); // Pegando a data atual
-    int multa; 
 
-    long DifEmMil = Math.abs(nowDate.getTime() - this.delivery.getTime()); // Pegando a diferença entre datas em milisegundos
+    Date nowDate = new Date();
+    int multa;
 
-    Long diff = TimeUnit.DAYS.convert(DifEmMil, TimeUnit.MILLISECONDS); // Convertendo de milisegundos para quantidade de dias
+    long DifEmMil = Math.abs(nowDate.getTime() - this.delivery.getTime());
 
-    // Calculando a multa
+    Long diff = TimeUnit.DAYS.convert(DifEmMil, TimeUnit.MILLISECONDS);
+
     multa = Integer.valueOf(diff.toString());
     multa = (multa) * 2;
 

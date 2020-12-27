@@ -9,7 +9,7 @@ import br.com.ufc.exception.PNEException;
 import br.com.ufc.model.product.Product;
 
 public class ProductRepository {
-  private Map<String,Product> products = new HashMap<String,Product>();
+  private Map<String, Product> products = new HashMap<String, Product>();
 
   public void addProduct(Product product) throws PJCException {
     if (!products.containsKey(product.getCode())) {
@@ -21,23 +21,22 @@ public class ProductRepository {
 
   public Product findProductByCode(String code) throws PNEException {
     Product product = products.get(code);
-    if(product == null) {
+    if (product == null) {
       throw new PNEException();
     }
     return product;
   }
 
-  public ArrayList<Product> listProdutc() throws PNEException {
-    ArrayList<Product> product = new ArrayList<Product>();
+  public ArrayList<Product> listProdutcs() throws PNEException {
+    ArrayList<Product> productList = new ArrayList<Product>();
 
-    for (Product product2 : products.values()){ // Preenchendo o array com os produtos
-      product.add(product2);
-    }
+    for (Product product : products.values())
+      productList.add(product);
 
-    if(product.isEmpty()){ // É lançado uma exception caso não exista nenhum produto
+    if (productList.isEmpty()) {
       throw new PNEException();
     }
 
-    return product; // Retornando o array de produtos
+    return productList;
   }
 }

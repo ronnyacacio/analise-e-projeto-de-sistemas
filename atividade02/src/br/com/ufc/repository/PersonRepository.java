@@ -12,9 +12,8 @@ import br.com.ufc.model.person.Employee;
 import br.com.ufc.model.person.Person;
 import br.com.ufc.model.person.SystemOperator;
 
-
 public class PersonRepository {
-  private HashMap<Integer,Person> persons = new HashMap<Integer,Person>();
+  private HashMap<Integer, Person> persons = new HashMap<Integer, Person>();
 
   public void addClient(Client client) throws CJCException {
     if (!persons.containsKey(client.getRegistration())) {
@@ -40,7 +39,7 @@ public class PersonRepository {
     Person person = findPersonByRegistration(registration);
 
     if (person instanceof Client) {
-      return (Client)person;
+      return (Client) person;
     } else {
       throw new CNEException();
     }
@@ -50,7 +49,7 @@ public class PersonRepository {
     Person person = findPersonByRegistration(registration);
 
     if (person instanceof SystemOperator) {
-      return (SystemOperator)person;
+      return (SystemOperator) person;
     } else {
       throw new SONEException();
     }
@@ -61,7 +60,7 @@ public class PersonRepository {
 
     for (Person person : persons.values()) {
       if (person instanceof Client) {
-        clients.add((Client)person);
+        clients.add((Client) person);
       }
     }
 
@@ -74,24 +73,24 @@ public class PersonRepository {
   public ArrayList<SystemOperator> listSystemOperators() throws SONEException {
     ArrayList<SystemOperator> operators = new ArrayList<SystemOperator>();
 
-    for (Person person : persons.values()) { // Percorrendo o HashMap de pesoas
-      if (person instanceof SystemOperator) { // Verificando se a pessoa atual foi instanciada como "SystemOperator"
-        operators.add((SystemOperator)person); // Adicionando no meu array
+    for (Person person : persons.values()) {
+      if (person instanceof SystemOperator) {
+        operators.add((SystemOperator) person);
       }
     }
 
-    if (operators.isEmpty()) { // Se o array for vazio lança uma SONEException
+    if (operators.isEmpty()) {
       throw new SONEException();
     }
 
-    return operators; // Caso não seja vazio retorna o array
+    return operators;
   }
 
   public ArrayList<Employee> getEmployees() {
     ArrayList<Employee> employees = new ArrayList<Employee>();
 
     for (Person person : persons.values()) {
-      employees.add((Employee)person);
+      employees.add((Employee) person);
     }
 
     return employees;

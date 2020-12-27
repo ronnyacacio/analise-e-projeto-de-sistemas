@@ -35,6 +35,9 @@ public class ManagerView {
         case 2:
           AddClientView.main(args);
           break;
+        case 3:
+          AddSystemOperatorView.main(args);
+          break;
         default:
           System.out.println("\nEscolha uma opção válida!\n");
           break;
