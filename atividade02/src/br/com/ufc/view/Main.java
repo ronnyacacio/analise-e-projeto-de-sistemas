@@ -2,9 +2,14 @@ package br.com.ufc.view;
 
 import java.util.Scanner;
 
+import br.com.ufc.controllers.ManagerController;
+
 public class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
+    ManagerController managerController = new ManagerController();
+
+    managerController.init();
 
     while (1 == 1) {
       System.out.println("----Bem-vindo, escolha um perfil abaixo: ");

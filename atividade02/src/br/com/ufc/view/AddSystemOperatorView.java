@@ -14,8 +14,12 @@ public class AddSystemOperatorView {
     String name = scanner.next();
     System.out.println("Digite a matrícula: ");
     Integer registration = scanner.nextInt();
+    System.out.println("DIgite seu login de acesso: ");
+    String login = scanner.next();
+    System.out.println("Digite sua senha de acesso: ");
+    String password = scanner.next();
 
-    SystemOperator systemOperator = new SystemOperator(name, registration);
+    SystemOperator systemOperator = new SystemOperator(name, registration, login, password);
     managerController.addSystemOperator(systemOperator);
   }
 }

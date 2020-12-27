@@ -9,6 +9,7 @@ import br.com.ufc.exception.PNEException;
 import br.com.ufc.exception.SOJCException;
 import br.com.ufc.exception.SONEException;
 import br.com.ufc.model.person.Client;
+import br.com.ufc.model.person.Manager;
 import br.com.ufc.model.person.SystemOperator;
 import br.com.ufc.model.product.Product;
 import br.com.ufc.repository.PersonRepository;
@@ -20,6 +21,10 @@ public class ManagerController {
 
   String successMessage = "SUCESSO";
   String errorMessage = "ERRO: ";
+
+  public void init() {
+    personRepository.init();
+  }
 
   public void addClient(Client client) {
     try {

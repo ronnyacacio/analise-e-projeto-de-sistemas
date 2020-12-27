@@ -9,11 +9,17 @@ import br.com.ufc.exception.SOJCException;
 import br.com.ufc.exception.SONEException;
 import br.com.ufc.model.person.Client;
 import br.com.ufc.model.person.Employee;
+import br.com.ufc.model.person.Manager;
 import br.com.ufc.model.person.Person;
 import br.com.ufc.model.person.SystemOperator;
 
 public class PersonRepository {
-  private HashMap<Integer, Person> persons = new HashMap<Integer, Person>();
+  private static HashMap<Integer, Person> persons = new HashMap<Integer, Person>();
+
+  public void init() {
+    Manager admin = new Manager("Admnistrador", 479250, "admin", "admin");
+    persons.put(admin.getRegistration(), admin);
+  }
 
   public void addClient(Client client) throws CJCException {
     if (!persons.containsKey(client.getRegistration())) {
@@ -90,7 +96,8 @@ public class PersonRepository {
     ArrayList<Employee> employees = new ArrayList<Employee>();
 
     for (Person person : persons.values()) {
-      employees.add((Employee) person);
+      if (person instanceof Manager || person instanceof SystemOperator)
+        employees.add((Employee) person);
     }
 
     return employees;

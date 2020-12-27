@@ -4,11 +4,15 @@ public class Employee extends Person {
   private String login;
   private String password;
 
-  public Employee(String name, Integer registration) {
+  public Employee(String name, int registration, String login, String password) {
     super(name, registration);
+    this.login = login;
+    this.password = password;
   }
 
-  public Employee() {
+  public Employee(String login, String password) {
+    this.login = login;
+    this.password = password;
   }
 
   public String getLogin() {

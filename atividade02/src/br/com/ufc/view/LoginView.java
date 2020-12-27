@@ -3,6 +3,7 @@ package br.com.ufc.view;
 import java.util.Scanner;
 
 import br.com.ufc.controllers.EmployeeController;
+import br.com.ufc.controllers.ManagerController;
 import br.com.ufc.model.person.Employee;
 import br.com.ufc.model.person.Manager;
 import br.com.ufc.model.person.SystemOperator;
