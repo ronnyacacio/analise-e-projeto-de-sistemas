@@ -1,6 +1,7 @@
 package br.com.ufc.repository;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import br.com.ufc.exception.PJLException;
@@ -10,10 +11,12 @@ import br.com.ufc.model.person.Client;
 import br.com.ufc.model.product.Product;
 
 public class LocationRepository {
-  private ArrayList<Location> locations = new ArrayList<Location>();
-  
-  public void lease(Client client, Product product, Date delivery) throws PJLException {
+  private static ArrayList<Location> locations = new ArrayList<Location>();
+
+  public void lease(Client client, Product product) throws PJLException {
     if (!product.isLeased()) {
+      Date delivery = this.calcDelivery();
+
       Location location = new Location(product.getCode(), client.getRegistration(), new Date(), delivery);
       product.setLeased(true);
       locations.add(location);
@@ -41,5 +44,15 @@ public class LocationRepository {
     } catch (PNLException e) {
       throw new PNLException();
     }
+  }
+
+  private Date calcDelivery() {
+    Date now = new Date();
+    Calendar calendar = Calendar.getInstance();
+    calendar.set(now.getYear(), now.getMonth(), now.getDay());
+    calendar.add(Calendar.DAY_OF_MONTH, 2);
+    Date delivery = calendar.getTime();
+
+    return delivery;
   }
 }

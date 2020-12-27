@@ -13,7 +13,7 @@ public class AddMovieView {
     ManagerController managerController = new ManagerController();
 
     while (1 == 1) {
-      System.out.println("1 - Cadastrar um DVD");
+      System.out.println("\n1 - Cadastrar um DVD");
       System.out.println("2 - Cadastrar um VHS");
       System.out.println("3 - Cadastrar um Blu-Ray");
       System.out.println("4 - Sair");
@@ -29,13 +29,6 @@ public class AddMovieView {
       String title = scanner.next();
       System.out.println("Digite o gênero: ");
       String gender = scanner.next();
-
-      System.out.println("\nDigite 1 se o DVD estiver alugado, caso contrário digite outro número qualquer: ");
-      int opLeased = scanner.nextInt();
-      boolean leased = false;
-      if (opLeased == 1)
-        leased = true;
-
       System.out.println("Digite o ano de lançamento: ");
       int yearOfLaunching = scanner.nextInt();
       System.out.println("Digite a duração: ");
@@ -49,7 +42,7 @@ public class AddMovieView {
           if (opScratched == 1)
             scratched = true;
 
-          Dvd dvd = new Dvd(code, title, gender, leased, yearOfLaunching, duration, scratched);
+          Dvd dvd = new Dvd(code, title, gender, false, yearOfLaunching, duration, scratched);
           managerController.addProduct(dvd);
           break;
         case 2:
@@ -59,7 +52,7 @@ public class AddMovieView {
           if (opColorful == 1)
             colorful = true;
 
-          Vhs vhs = new Vhs(code, title, gender, leased, yearOfLaunching, duration, colorful);
+          Vhs vhs = new Vhs(code, title, gender, false, yearOfLaunching, duration, colorful);
           managerController.addProduct(vhs);
           break;
         case 3:
@@ -71,7 +64,7 @@ public class AddMovieView {
           languages[0] = languageOne;
           languages[1] = languageTwo;
 
-          BluRay bluRay = new BluRay(code, title, gender, leased, yearOfLaunching, duration, languages);
+          BluRay bluRay = new BluRay(code, title, gender, false, yearOfLaunching, duration, languages);
           managerController.addProduct(bluRay);
           break;
         default:

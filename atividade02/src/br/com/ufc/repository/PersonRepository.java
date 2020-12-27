@@ -17,7 +17,7 @@ public class PersonRepository {
   private static HashMap<Integer, Person> persons = new HashMap<Integer, Person>();
 
   public void init() {
-    Manager admin = new Manager("Admnistrador", 479250, "admin", "admin");
+    Manager admin = new Manager("Admnistrador", 1, "admin", "admin");
     persons.put(admin.getRegistration(), admin);
   }
 

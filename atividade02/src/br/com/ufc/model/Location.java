@@ -1,5 +1,6 @@
 package br.com.ufc.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -49,8 +50,9 @@ public class Location {
   }
 
   public void fine() {
-    if (this.delivery.after(new Date()) || this.delivery.equals(new Date())) {
+    if (this.delivery.after(new Date())) {
       System.out.println("SEM MULTA!");
+      return;
     }
 
     Date nowDate = new Date();
@@ -63,6 +65,6 @@ public class Location {
     multa = Integer.valueOf(diff.toString());
     multa = (multa) * 2;
 
-    System.out.println("Multa de " + multa);
+    System.out.println("Multa de R$" + multa + ",00");
   }
 }

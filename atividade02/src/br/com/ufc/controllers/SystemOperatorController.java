@@ -20,9 +20,9 @@ public class SystemOperatorController {
   String successMessage = "SUCESSO";
   String errorMessage = "ERRO: ";
 
-  public void lease(Client client, Product product, Date delivery) {
+  public void lease(Client client, Product product) {
     try {
-      locationRepository.lease(client, product, delivery);
+      locationRepository.lease(client, product);
       System.out.println(successMessage);
     } catch (PJLException e) {
       System.out.println(errorMessage + e.getMessage());
@@ -44,7 +44,7 @@ public class SystemOperatorController {
       System.out.println(successMessage);
     } catch (PNLException e) {
       System.out.println(errorMessage + e.getMessage());
-    } 
+    }
   }
 
   public Product findProductByCode(String code) {

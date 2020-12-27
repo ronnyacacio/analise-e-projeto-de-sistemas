@@ -12,13 +12,13 @@ public class AddMusicView {
     ManagerController managerController = new ManagerController();
 
     while (1 == 1) {
-      System.out.println("1 - Cadastrar LP");
+      System.out.println("\n1 - Cadastrar LP");
       System.out.println("2 - Cadastrar CD");
       System.out.println("3 - Sair");
 
       int op = scanner.nextInt();
 
-      if (op == 4)
+      if (op == 3)
         return;
 
       System.out.println("Digite o codigo: ");
@@ -27,13 +27,6 @@ public class AddMusicView {
       String title = scanner.next();
       System.out.println("Digite o gênero: ");
       String gender = scanner.next();
-
-      System.out.println("\nDigite 1 se o DVD estiver alugado, caso contrário digite outro número qualquer: ");
-      int opLeased = scanner.nextInt();
-      boolean leased = false;
-      if (opLeased == 1)
-        leased = true;
-
       System.out.println("Digite o nome autor: ");
       String author = scanner.next();
       System.out.println("Digite o número de faixas: ");
@@ -47,7 +40,7 @@ public class AddMusicView {
           if (opRare == 1)
             rare = true;
 
-          Lp lp = new Lp(code, title, gender, leased, author, numberOfTracks, rare);
+          Lp lp = new Lp(code, title, gender, false, author, numberOfTracks, rare);
           managerController.addProduct(lp);
           break;
         case 2:
@@ -63,7 +56,7 @@ public class AddMusicView {
           if (opDual == 1)
             dual = true;
 
-          Cd cd = new Cd(code, title, gender, leased, author, numberOfTracks, scratched, dual);
+          Cd cd = new Cd(code, title, gender, false, author, numberOfTracks, scratched, dual);
           managerController.addProduct(cd);
           break;
         default:

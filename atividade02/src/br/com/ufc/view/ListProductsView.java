@@ -13,8 +13,9 @@ public class ListProductsView {
 
     System.out.println("\n");
 
-    for (Product product : products)
-      System.out.println(product.toString());
+    if (products.size() > 0)
+      for (Product product : products)
+        System.out.println(product.toString());
 
     System.out.println("\n");
   }

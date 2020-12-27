@@ -7,7 +7,7 @@ public class AddProductView {
     Scanner scanner = new Scanner(System.in);
 
     while (1 == 1) {
-      System.out.println("1 - Cadastrar Filme");
+      System.out.println("\n1 - Cadastrar Filme");
       System.out.println("2 - Cadastrar Música");
       System.out.println("3 - Sair");
 

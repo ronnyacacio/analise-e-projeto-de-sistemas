@@ -9,7 +9,7 @@ import br.com.ufc.exception.PNEException;
 import br.com.ufc.model.product.Product;
 
 public class ProductRepository {
-  private Map<String, Product> products = new HashMap<String, Product>();
+  private static Map<String, Product> products = new HashMap<String, Product>();
 
   public void addProduct(Product product) throws PJCException {
     if (!products.containsKey(product.getCode())) {
